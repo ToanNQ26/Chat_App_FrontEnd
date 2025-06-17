@@ -1,0 +1,44 @@
+.friend-container {
+    display: flex;
+    height: 97vh; /* Hoặc bạn có thể đặt chiều cao cụ thể */
+  }
+  
+  /* Menu bên trái */
+  .menu-friendfriend {
+    width: 25%;
+    background-color: #e8e4e4;
+    border-right: 1px solid #ddd;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Danh sách menu */
+  .menu-friendfriend ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-friendfriend li {
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-friendfriend li:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .menu-friendfriend li.active {
+    background-color: #d0d0d0;
+    font-weight: bold;
+  }
+  
+  /* Nội dung bên phải */
+  .content {
+    flex: 1;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  

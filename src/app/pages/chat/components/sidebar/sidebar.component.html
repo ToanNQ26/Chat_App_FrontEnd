@@ -1,0 +1,18 @@
+<nav class="sidebar">
+  <ul>
+    <app-avatar [user]="user" (click) = "uploadAvatar()"></app-avatar>
+    <li *ngFor="let menu of menus"
+      (click)="handleClick(menu)"
+      [routerLink]="menu.route"
+      [routerLinkActive]="menu.route ? 'active' : ''"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <span class="icon">{{ menu.icon }}</span>
+    </li>
+  </ul>
+</nav>
+<div class= "modal-overlay" *ngIf= "showUploadAvatar" (click)="closeUploadAvatar()">
+  <div (click)="$event.stopPropagation()">
+    <app-avatar-upload></app-avatar-upload>
+  </div>
+</div>
+

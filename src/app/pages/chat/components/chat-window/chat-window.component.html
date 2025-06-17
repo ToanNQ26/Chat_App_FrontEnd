@@ -1,0 +1,13 @@
+<div class="chat-window-container">
+  <app-conversation-header [conversation]= "selectedConversation"> </app-conversation-header>
+
+  <div class="message-list" #scrollContainer>
+
+    <app-message-item
+      *ngFor="let msg of messages"
+      [message]= "msg"
+      [currentUser]= "user">
+    </app-message-item>
+  </div>
+  <app-message-input (send)= onSend($event)></app-message-input>
+</div>

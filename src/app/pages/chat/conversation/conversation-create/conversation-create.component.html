@@ -1,0 +1,45 @@
+<div class="modal-overlay" (click)="onClose()">
+  <div class="conversation-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <span class="modal-title">Tạo nhóm</span>
+      <button class="close-btn" type="button" (click)="onClose()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input
+        class="group-name-input"
+        type="text"
+        [(ngModel)]="conversationName"
+        placeholder="Nhập tên nhóm..."
+        autocomplete="off"
+      />
+      <input
+        class="search-input"
+        type="text"
+        [(ngModel)]="serchTerm"
+        placeholder="Nhập tên bạn bè"
+      />
+      <div class="list-label">Danh sách bạn bè</div>
+      <div class="friends-list">
+        <div
+          class="friend-item"
+          *ngFor="let friend of filterFriends"
+          (click)="toggleFriend(friend)"
+        >
+          <input
+            type="checkbox"
+            [checked]="isSelected(friend)"
+            (click)="$event.stopPropagation(); toggleFriend(friend)"
+          />
+          <span class="friend-name">{{friend.fullName}}</span>
+        </div>
+        <div class="no-friends" *ngIf="filterFriends.length === 0">
+          Không tìm thấy bạn bè phù hợp.
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    <!--  <button type="button" class="cancel-btn" (click)="onCancel()">Hủy</button> -->
+      <button type="button" class="create-btn" [disabled]="!conversationName.trim() || selectedFriendIds.length === 1" (click)="createGroup()">Tạo nhóm</button>
+    </div>
+  </div>
+</div>

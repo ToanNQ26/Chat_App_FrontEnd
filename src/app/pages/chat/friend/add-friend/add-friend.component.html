@@ -1,0 +1,27 @@
+<div class="modal-overlay" (click)="onClose()">
+  <!-- Hiển thị TÌM KIẾM nếu chưa tìm xong -->
+  <div class="add-friend-modal" *ngIf="!searchDone" (click)="$event.stopPropagation()">
+    <!-- <button class="close-btn" (click)="onClose()">×</button> -->
+
+    <div class="searchFriend">
+      <h4>Thêm bạn bè</h4>
+      <input [(ngModel)]="phone" placeholder="Nhập số điện thoại" />
+      <button (click)="searchUser()">Tìm kiếm</button>
+    </div>
+  </div>
+
+  <!-- Hiển thị CHỈ THÔNG TIN nếu đã tìm thấy -->
+  <div class="friend-info-container" *ngIf="searchDone" (click)="$event.stopPropagation()">
+    <div class="modal-wrapper">
+      <app-friend-info-modal
+        [friend]="selectedUser"
+        [fullscreen]="false"
+        (close)="closeModal()">
+      </app-friend-info-modal>
+
+      <div class="action-buttons">
+        <button (click)="sendFriendRequest()">Gửi lời mời kết bạn</button>
+      </div>
+    </div>
+  </div>
+</div>

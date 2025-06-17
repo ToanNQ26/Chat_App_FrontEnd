@@ -1,0 +1,14 @@
+<div class="conversation-list">
+  <ul>
+    <li *ngFor="let conv of conversations">
+      <div
+        role="button"
+        tabindex="0"
+        [routerLink]="['/chat', conv.conversationId]"
+        routerLinkActive="active"
+        class="conversation-link">
+        {{ conv.name }}
+      </div>
+    </li>
+  </ul>
+</div>

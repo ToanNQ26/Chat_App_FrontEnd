@@ -1,0 +1,12 @@
+<div *ngIf="friend" [ngClass]="{ 'modal-overlay': fullscreen }" (click)="fullscreen ? onClose() : null">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Thông tin bạn bè</h3>
+    <p><strong>Họ tên:</strong> {{ friend.fullName }}</p>
+    <p><strong>Email:</strong> {{ friend.email }}</p>
+    <p><strong>Ngày sinh:</strong> {{ friend.dateOfBirth }}</p>
+    <p><strong>Số điện thoại:</strong> {{ friend.phone }}</p>
+    <p><strong>Trạng thái:</strong> {{ friend.isActive ? 'Hoạt động' : 'Không hoạt động' }}</p>
+
+    <!-- <button (click)="onClose()">Đóng</button> -->
+  </div>
+</div>

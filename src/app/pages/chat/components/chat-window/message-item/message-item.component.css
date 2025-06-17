@@ -1,0 +1,48 @@
+.message-wrapper {
+  display: flex;
+  align-items: flex-start;  /* Căn avatar và message-item trên cùng hàng */
+  margin: 5px 10px;
+  width: 100%;
+  gap: 8px;
+}
+
+.message-wrapper.mine {
+  justify-content: flex-end; /* Căn tin nhắn của mình về bên phải */
+  gap: 0; /* Không cần khoảng cách vì không hiện avatar */
+}
+
+.message-wrapper.mine app-avatar {
+  display: none; /* Ẩn avatar khi là tin nhắn mình */
+}
+
+.message-item {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+}
+
+.message-wrapper.mine .message-item {
+  background-color: #dcf8c6;
+  text-align: right;
+}
+
+.message-name {
+  font-weight: bold;
+  color: #df1212;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.message-content {
+  word-wrap: break-word;
+}
+
+.timestamp {
+  font-size: 10px;
+  color: #666;
+  margin-top: 5px;
+  text-align: right;
+}

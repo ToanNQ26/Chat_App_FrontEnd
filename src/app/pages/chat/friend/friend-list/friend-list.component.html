@@ -1,0 +1,21 @@
+<div class="friend-list">
+  <ul>
+    <li *ngFor="let friend of friendUsers">
+      <div class="friend-item" (click)="toggleMenu(friend)">
+        <app-avatar [user]="friend"></app-avatar>
+        <span>{{ friend.fullName }}</span>
+
+        <!-- Menu -->
+        <div class="friend-menu" *ngIf="selectedFriend === friend">
+          <ul>
+            <li (click)="routConversation(friend)">Nhắn tin</li>
+            <li (click)="viewInfo(friend)">Xem thông tin</li>
+            <li (click)="removeFriend(friend)">Xóa kết bạn</li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<app-friend-info-modal [friend]="viewedFriend" [fullscreen]="true" (close)="closeModal()"></app-friend-info-modal>
+

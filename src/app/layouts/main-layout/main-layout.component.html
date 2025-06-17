@@ -1,0 +1,8 @@
+<div class="app-container">
+    <app-sidebar (openAddFriend)="openAddFriendModal()" (opendCreateConversation)="openCreateConversationModal()"></app-sidebar>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+    <app-add-friend *ngIf="showAddFriend" (close)="closeAddFriendModal()"></app-add-friend>
+    <app-conversation-create *ngIf="showCreateConversation" (close1)="closeCreateConversationModal()"></app-conversation-create> 
+</div>

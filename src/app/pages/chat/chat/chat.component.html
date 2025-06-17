@@ -1,0 +1,21 @@
+<div class="chat-container">
+  <app-chat-list
+    [conversations]="conversations"
+    [selectedConversationId]="selectedConversation?.conversationId ?? ''"
+    (conversationSelected)="selectConversation($event)">
+  </app-chat-list>
+
+  <!-- chỉ render chat-window khi đã có user & conversation -->
+  <ng-container *ngIf="user && selectedConversation">
+    <app-chat-window
+      [selectedConversation]="selectedConversation"
+      [messages]="messages"
+      [user]="user"
+      (sendMessage)="onSendMessage($event)">
+    </app-chat-window>
+    <app-conversation-info
+      [conversation]="selectedConversation"
+      [user]="user">
+    </app-conversation-info>
+  </ng-container>
+</div>

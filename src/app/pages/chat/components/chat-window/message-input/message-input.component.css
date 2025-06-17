@@ -1,0 +1,94 @@
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  textarea {
+    flex: 1;
+    resize: none;
+    height: 30px;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    /* flex: 1;
+    padding: 6px 10px;
+    border-radius: 16px;
+    border: 1px solid #aaa; */
+  }
+  
+  button {
+    margin-left: 8px;
+    padding: 0 16px;
+    font-size: 14px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  } 
+  
+  .toolbar button {
+  padding: 0 10px;
+  font-size: 18px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background-color: #0056b3;
+}
+
+.toolbar button {
+  height: 30px; /* cùng chiều cao với textarea */
+  padding: 0 16px; /* giống nút gửi */
+  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 80px; /* sổ lên trên nút */
+  right: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+
+  width: 325px;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.emoji {
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.emoji:hover {
+  transform: scale(1.2);
+}

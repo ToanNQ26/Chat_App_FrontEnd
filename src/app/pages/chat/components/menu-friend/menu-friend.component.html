@@ -1,0 +1,13 @@
+<div class="friend-container">
+	<nav class="menu-friendfriend">
+		<ul>
+			<li *ngFor="let menu of menus" (click)="changeMenu(menu.value)" [class.active]="menu.value === selectedMenu">
+				<span class="label">{{ menu.label }}</span>
+			</li>
+		</ul>
+	</nav>
+	<div class="content">
+		<app-friend-list *ngIf="selectedMenu === 'friend-list'"></app-friend-list>
+		<app-friend-request *ngIf="selectedMenu === 'friend-request'"></app-friend-request>
+	</div>
+</div>

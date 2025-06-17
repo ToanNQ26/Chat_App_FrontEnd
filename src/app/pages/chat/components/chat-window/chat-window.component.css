@@ -1,0 +1,20 @@
+.chat-window-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .header {
+    padding: 10px;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .message-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: #fafafa;
+  }
+  

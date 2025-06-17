@@ -1,0 +1,13 @@
+<div class="header">
+  <img
+    class="avatar"
+    [src]="'http://localhost:4200/assets/images/defautAvatar.jpg'"
+  />
+  <div class="info">
+    <div class="name">{{ conversation?.name }}</div>
+    <div class="status">Đang hoạt động</div>
+  </div>
+  <div class="add-member" *ngIf="isGroupConversation" (click)= "openAddMemberModal()">🔞</div>
+</div>
+<app-add-member *ngIf= "showAddMember" [selectConversation]= "conversation" (close1)= "closeAddMember()"></app-add-member>
+

@@ -1,0 +1,10 @@
+<div class="message-wrapper" [class.mine]="isMyMessage()">
+  <!-- Avatar chỉ hiện khi không phải tin nhắn của mình -->
+  <app-avatar *ngIf="!isMyMessage()" [user]="sender"></app-avatar>
+
+  <div class="message-item">
+    <div class="message-name">{{ sender?.fullName }}</div>
+    <div class="message-content">{{ message.content }}</div>
+    <div class="timestamp">{{ formatLocalTime(message.timeStamp) }}</div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onClick()">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" formControlName="fullname" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" required>
+    <div class="error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        Email không hợp lệ.
+    </div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" required>
+
+    <label for="dateofbirth">Date of Birth</label>
+    <input type="date" id="dateofbirth" formControlName="dateofbirth" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" formControlName="phone" required pattern="[0-9]{10,15}" placeholder="e.g. 0123456789">
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    <button type="button" class="back-login-btn" [routerLink]="'/login'">Quay lại đăng nhập</button>
+  </form>

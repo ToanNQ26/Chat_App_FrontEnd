@@ -1,0 +1,15 @@
+<div class="input-container">
+  <textarea
+    [(ngModel)]="messageContent"
+    (keyup.enter)="sendMessage()"
+    placeholder="Nhập tin nhắn..."
+  ></textarea>
+
+  <button type="button" (click)="toggleEmojiPicker()">😊</button>
+
+  <div *ngIf="showEmojiPicker" class="emoji-picker">
+    <span *ngFor="let emoji of emojis" (click)="addEmoji(emoji)" class="emoji">
+      {{ emoji }}
+    </span>
+  </div>
+</div>

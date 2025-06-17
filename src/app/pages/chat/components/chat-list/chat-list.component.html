@@ -1,0 +1,19 @@
+<div class="chat-list-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Tìm kiếm..."
+    class="search-input"
+  />
+
+  <ul class="conversation-list">
+    <li
+      *ngFor="let convo of filteredConversations"
+      [class.selected]="convo.conversationId === selectedConversationId"
+      (click)="selectConversation(convo)"
+    >
+      <div class="name">{{ convo.name }}</div>
+       <!--  <div class="last-message">{{ convo.lastMessage?.content || '...' }}</div> -->
+    </li>
+  </ul>
+</div>
