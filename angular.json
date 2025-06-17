@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "/",
             "outputPath": "dist/chat-app1",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -24,6 +25,7 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
+              "src/_redirects",
               {
                 "glob": "**/*",
                 "input": "public",
