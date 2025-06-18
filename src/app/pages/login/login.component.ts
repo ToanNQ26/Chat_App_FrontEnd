@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { switchMap, tap } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ConversationService } from '../../services/conversation.service';
 import { FriendService } from '../../services/friend.service';
 
@@ -13,7 +13,7 @@ import { FriendService } from '../../services/friend.service';
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, RouterModule]
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -68,6 +68,9 @@ export class LoginComponent {
       }
       });
       
+    } else {
+      this.loginForm.markAllAsTouched();
+      alert("Vui lòng điền đầy đủ thông tin")
     }
   }
 }

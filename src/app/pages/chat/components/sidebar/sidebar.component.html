@@ -6,7 +6,16 @@
       [routerLink]="menu.route"
       [routerLinkActive]="menu.route ? 'active' : ''"
       [routerLinkActiveOptions]="{ exact: true }">
-      <span class="icon">{{ menu.icon }}</span>
+
+       <span class="icon">
+        <ng-container *ngIf="menu.isImage; else textIcon">
+          <img [src]="menu.icon" alt="{{ menu.value }}" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+        </ng-container>
+        <ng-template #textIcon>
+          {{ menu.icon }}
+        </ng-template>
+      </span>
+
     </li>
   </ul>
 </nav>

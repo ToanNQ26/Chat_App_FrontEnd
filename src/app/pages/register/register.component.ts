@@ -39,6 +39,9 @@ export class RegisterComponent {
           alert("Đăng ký thất bại")
         }
       })
+    } else {
+      this.registerForm.markAllAsTouched();
+      alert("Vui lòng điền đầy đủ thông tin")
     }
   }
 }

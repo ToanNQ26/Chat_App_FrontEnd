@@ -1,5 +1,7 @@
-<h2>Register</h2>
+<div class="background">
+
   <form [formGroup]="registerForm" (ngSubmit)="onClick()">
+    <h2>Register</h2>
     <label for="fullname">Full Name</label>
     <input type="text" id="fullname" formControlName="fullname" required>
 
@@ -18,6 +20,8 @@
     <label for="phone">Phone Number</label>
     <input type="tel" id="phone" formControlName="phone" required pattern="[0-9]{10,15}" placeholder="e.g. 0123456789">
 
-    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    <!-- <button type="submit" [disabled]="registerForm.invalid">Register</button> -->
+    <button type="submit">Register</button>
     <button type="button" class="back-login-btn" [routerLink]="'/login'">Quay lại đăng nhập</button>
   </form>
+</div>

@@ -35,10 +35,10 @@ export class SidebarComponent {
     { icon: '📙', value: 'friends', route: '/friends' },
     { icon: '👥', value: 'conversation', route: '/conversation' },
     { icon: '🟢', value: 'online-users', route: '/online-users' },
-    { icon: '➕', value: 'add-friend', action: 'openAddFriend' },
-    { icon: '🔞', value: 'create-conversation', action: 'openCreateConversation'},
+    { icon: 'assets/icons/add-friend.png', value: 'add-friend', action: 'openAddFriend', isImage:true},
+    { icon: 'assets/icons/creategroup.png', value: 'create-conversation', action: 'openCreateConversation', isImage: true},
     { icon: '⚙️', value: 'settings',  },
-    { icon: '🚪', value: 'logout', action: 'logout' }
+    { icon: 'assets/icons/logout.png', value: 'logout', action: 'logout', isImage: true }
   ];
   
   handleClick(menu: any) {

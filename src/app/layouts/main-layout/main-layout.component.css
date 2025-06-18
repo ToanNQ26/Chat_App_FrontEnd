@@ -1,17 +1,101 @@
+/* Nền động bên ngoài */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff4b2b, #ff416c);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  z-index: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bố cục app-container */
 .app-container {
-    display: flex;
-    height: 97vh; /* Chiều cao toàn màn hình */
-    width: 100%;
-  }
-  
+  padding: 10px;
+  display: flex;
+  height: 97vh;
+  width: 100%;
+}
+
+/* Sidebar bên trái */
+.app-sidebar {
+  width: 80px; /* Có thể chỉnh thành 5%-10% nếu muốn co dãn theo màn hình */
+  background-color: rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Phần nội dung chính bên phải */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Thêm hiệu ứng cho sidebar menu */
+.app-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.app-sidebar li {
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+  color: #333;
+  transition: background 0.3s;
+}
+
+.app-sidebar li:hover {
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
+
+/* Responsive nhỏ hơn cho mobile */
+@media (max-width: 600px) {
   .app-sidebar {
-    width: 100%; /* Có thể điều chỉnh thành 5% hoặc 10% tùy yêu cầu */
-    background-color: #f0f0f0; /* Tùy chỉnh màu nếu cần */
-    display: flex;
+    width: 50px;  /* nhỏ gọn hơn trên điện thoại */
+    padding: 0;
   }
-  
-  .main-content {
-    flex: 1; /* Chiếm phần còn lại */
-    overflow-y: auto;
+
+  .app-sidebar li {
+    padding: 10px 5px; /* giảm padding cho vừa mắt */
   }
-  
+}
+

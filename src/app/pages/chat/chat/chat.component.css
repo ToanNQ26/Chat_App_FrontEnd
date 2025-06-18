@@ -1,37 +1,96 @@
-/* .chat-container {
-    display: flex;
-    height: 100%;
+
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 97vh;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  background-color: transparent; 
+  overflow: hidden;
+}
+
+/* Sidebar bên trái */
+
+app-chat-list {
+  flex: 0 0 260px;
+  min-width: 240px;
+  max-width: 300px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Khung chat chính giữa */
+
+app-chat-window {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Sidebar bên phải */
+
+app-conversation-info {
+  flex: 0 0 260px;
+  min-width: 240px;
+  max-width: 300px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  app-conversation-info {
+    display: none;
   }
-   */
-   .chat-container {
-    display: flex;
-    height: 97vh;
-    width: 100%;
-    background-color: #f0f0f0;
-    overflow: hidden;
-  }
-  
-  /* giả định app-chat-list chiếm 30%, app-chat-window chiếm 70% */
+}
+
+@media (max-width: 800px) {
   app-chat-list {
-    width: 30%;
-    max-width: 320px;
-    min-width: 260px;
-    border-right: 1px solid #ccc;
-    background-color: #ffffff;
+    flex: 0 0 120px;
+    min-width: 100px;
   }
-  
-  app-chat-window {
-    width: 45%;
-    flex: 1;
-    background-color: #f9f9f9;
-    display: flex;
+}
+
+@media (max-width: 480px) {
+  .chat-container {
     flex-direction: column;
   }
-
-  app-conversation-info{
-    position: relative;
-    width: 30%;
-    max-width: 320px;
-    min-width: 260px;
+  app-chat-list {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 60px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
-  
+  app-chat-window {
+    flex: 1;
+  }
+}

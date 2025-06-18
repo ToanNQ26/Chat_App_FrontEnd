@@ -1,5 +1,7 @@
+<div class="background">
 <div class="login-container">
   <h2>Đăng nhập</h2>
+ 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     
     <div class="form-group">
@@ -17,11 +19,12 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid">Đăng nhập</button>
-    <a href="http://localhost:4200/register" class="register-link">Chưa có tài khoản? Đăng ký</a>
+    <button type="submit" >Đăng nhập</button>
+    <a routerLink="/register" class="register-link">Chưa có tài khoản? Đăng ký</a>
     <div class="forgot-password">
-      <a href="http://localhost:4200/forgot-password">Quên mật khẩu?</a>
+      <a routerLink="/forgot-password">Quên mật khẩu?</a>
     </div>
 
   </form>
+</div>
 </div>
