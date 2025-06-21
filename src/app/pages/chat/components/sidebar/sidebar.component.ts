@@ -37,7 +37,7 @@ export class SidebarComponent {
     { icon: '🟢', value: 'online-users', route: '/online-users' },
     { icon: 'assets/icons/add-friend.png', value: 'add-friend', action: 'openAddFriend', isImage:true},
     { icon: 'assets/icons/creategroup.png', value: 'create-conversation', action: 'openCreateConversation', isImage: true},
-    { icon: '⚙️', value: 'settings',  },
+    { icon: '⚙️', value: 'settings', route: '/settings' },
     { icon: 'assets/icons/logout.png', value: 'logout', action: 'logout', isImage: true }
   ];
   

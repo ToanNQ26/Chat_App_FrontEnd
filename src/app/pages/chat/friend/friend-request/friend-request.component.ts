@@ -17,10 +17,12 @@ import { ConversationService } from '../../../../services/conversation.service';
 })
 export class FriendRequestComponent {
   friendRequests: FriendRequest[] = [];
+  sentFriendRequest: FriendRequest[] = [];
   selectedRequest!: FriendRequest;
   listUserId: string[] = [];
   currentUser!: User;
   friendUsers: User[] = [];
+  sentFriendUsers: User[] = [];
   activeTab: 'received' | 'sent' = 'received';
   private dragStartX: number | null = null;
   private dragDelta: number = 0;
@@ -33,6 +35,7 @@ export class FriendRequestComponent {
   ngOnInit(): void {
     this.currentUser = this.userService.getUser()!;
     this.loadFriendRequests();
+    this.loadSentFriendRequests();
   }
 
   loadFriendRequests(): void {
@@ -52,6 +55,27 @@ export class FriendRequestComponent {
         forkJoin(userObservables).subscribe(users => {
           console.log('Users resolved:', users);
           this.friendUsers = users;
+        });
+    });
+  }
+
+  loadSentFriendRequests(): void {
+    this.friendService.sentFriendRequest(this.currentUser.userId).subscribe(requests => {
+      console.log("Sent Friend requests:", requests); 
+      this.sentFriendRequest = requests.result;
+      console.log(requests.result, "lal");
+
+      // Lấy danh sách user tương ứng với từng request
+      const userObservables = (requests.result as FriendRequest[]).map((req: FriendRequest) => 
+        this.userService.getUserList(req.receiverId)
+
+      );
+
+      console.log(userObservables, "iha")
+
+        forkJoin(userObservables).subscribe(users => {
+          console.log('Users resolved:', users);
+          this.sentFriendUsers = users;
         });
     });
   }
@@ -86,13 +110,29 @@ export class FriendRequestComponent {
   //   this.selectedRequest = request;
   // }
 
+  // private removeRequestFromList(requestId: number): void {
+  //   const indexToRemove = this.friendRequests.findIndex(r => r.id === requestId);
+  //   if (indexToRemove !== -1) {
+  //     this.friendRequests.splice(indexToRemove, 1);
+  //     this.friendUsers.splice(indexToRemove, 1);
+  //   }
+  // }
+
   private removeRequestFromList(requestId: number): void {
+  if (this.activeTab === 'received') {
     const indexToRemove = this.friendRequests.findIndex(r => r.id === requestId);
     if (indexToRemove !== -1) {
       this.friendRequests.splice(indexToRemove, 1);
       this.friendUsers.splice(indexToRemove, 1);
     }
+  } else if (this.activeTab === 'sent') {
+    const indexToRemove = this.sentFriendRequest.findIndex(r => r.id === requestId);
+    if (indexToRemove !== -1) {
+      this.sentFriendRequest.splice(indexToRemove, 1);
+      this.sentFriendUsers.splice(indexToRemove, 1);
+    }
   }
+}
 
   onDragStart(event: MouseEvent | TouchEvent) {
     this.dragStartX = (event instanceof MouseEvent) ? event.clientX : event.touches[0].clientX;

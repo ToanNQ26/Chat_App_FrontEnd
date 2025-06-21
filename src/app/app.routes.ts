@@ -7,6 +7,7 @@ import { ConversationListComponent } from './pages/chat/conversation/conversatio
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { MenuFriendComponent } from './pages/chat/components/menu-friend/menu-friend.component';
 import { OnlineUsersComponent } from './pages/chat/components/online-user/online-user.component';
+import { SettingComponent } from './pages/chat/components/setting/setting.component';
 
 export const routes: Routes = [
   {
@@ -49,7 +50,7 @@ export const routes: Routes = [
       { path: 'friends', component: MenuFriendComponent },
       { path: 'conversation', component: ConversationListComponent },
       { path: 'online-users', component: OnlineUsersComponent },
-      // { path: 'settings', component: SettingsComponent },
+      { path: 'settings', component: SettingComponent },
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
     ],
   },

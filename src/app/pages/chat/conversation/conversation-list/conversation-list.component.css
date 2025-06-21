@@ -1,6 +1,15 @@
+h2 {
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  background-color: #eddada82;
+}
+
 .conversation-list {
     padding: 10px;
     border-top: 1px solid #ccc;
+    background-color: #6666665e;
+    border-bottom: 1px solid;
   }
   
   .conversation-list ul {
@@ -14,8 +23,8 @@
     border-radius: 5px;
   }
   
-  .conversation-list li:hover {
-    background-color: #e9e9e9;
+  .conversation-list:hover {
+    background-color: #e9e9e9b3;
   }
   
   .conv-title {

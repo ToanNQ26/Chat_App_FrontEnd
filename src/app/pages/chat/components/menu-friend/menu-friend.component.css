@@ -6,7 +6,7 @@
   /* Menu bên trái */
   .menu-friendfriend {
     width: 25%;
-    background-color: #e8e4e4;
+    background-color: #e8e4e463;
     border-right: 1px solid #ddd;
     padding: 16px;
     box-sizing: border-box;
@@ -30,7 +30,7 @@
   }
   
   .menu-friendfriend li.active {
-    background-color: #d0d0d0;
+    background-color: #d0d0d000;
     font-weight: bold;
   }
   

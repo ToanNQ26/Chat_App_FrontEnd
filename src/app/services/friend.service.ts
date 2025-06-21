@@ -68,4 +68,8 @@ export class FriendService {
       localStorage.removeItem('listFriend');
       this.listFriend.next([]);
     }
+
+    sentFriendRequest(userId: string): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/friend-requests/sent/${userId}`)
+  }
 }

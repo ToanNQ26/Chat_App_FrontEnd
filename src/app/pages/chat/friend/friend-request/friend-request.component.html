@@ -34,17 +34,17 @@
     </div>
     <!-- Sent Requests List -->
     <div class="request-list friendRequests" *ngIf="activeTab === 'sent'">
-      <div *ngIf="friendRequests?.length === 0" class="no-requests">
+      <div *ngIf="sentFriendRequest?.length === 0" class="no-requests">
         <span>Bạn chưa gửi lời mời kết bạn nào.</span>
       </div>
-      <div *ngFor="let sent of friendRequests; let i = index" class="request-card">
+      <div *ngFor="let sent of sentFriendRequest; let i = index" class="request-card">
         <div class="request-info">
-          <span class="user-fullname">{{ friendUsers[i]?.fullName }}</span>
-          <span class="user-email">{{ friendUsers[i]?.email }}</span>
+          <span class="user-fullname">{{ sentFriendUsers[i]?.fullName }}</span>
+          <span class="user-email">{{ sentFriendUsers[i]?.email }}</span>
           <span class="sent-date">{{ sent?.createAt }}</span>
         </div>
         <div class="request-actions">
-          <button class="sent-btn" disabled>Đã gửi</button>
+          <button class="refuse-btn" (click)="refuse(sent)">Hủy lời mời</button>
         </div>
       </div>
     </div>

@@ -19,7 +19,11 @@
       </div>
     </div>
 
-    <button type="submit" >Đăng nhập</button>
+    <app-loading-button
+      [loading]="loading"
+      text="Đăng nhập"
+      buttonClass="submit-btn">
+    </app-loading-button>
     <a routerLink="/register" class="register-link">Chưa có tài khoản? Đăng ký</a>
     <div class="forgot-password">
       <a routerLink="/forgot-password">Quên mật khẩu?</a>

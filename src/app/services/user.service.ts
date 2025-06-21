@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { UpdateUser } from '../models/dto/UpdateUser';
+import { UpdatePassword } from '../models/dto/UpdatePassword';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +69,13 @@ export class UserService {
     clearFriendUser() {
       localStorage.removeItem('listFriendUser');
       this.listFriendUser.next([]);
+    }
+    updateUser(userId: string, user: UpdateUser) {
+      return this.http.post(`${this.apiUrl}/update/${userId}`, user, {responseType: 'text'});
+    }
+
+    updatePassword(updatepass : UpdatePassword) {
+       return this.http.post(`${this.apiUrl}/password`, updatepass, {responseType: 'text'});
     }
 
 }

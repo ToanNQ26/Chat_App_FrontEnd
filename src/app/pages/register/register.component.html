@@ -20,8 +20,13 @@
     <label for="phone">Phone Number</label>
     <input type="tel" id="phone" formControlName="phone" required pattern="[0-9]{10,15}" placeholder="e.g. 0123456789">
 
-    <!-- <button type="submit" [disabled]="registerForm.invalid">Register</button> -->
-    <button type="submit">Register</button>
+    <app-loading-button
+      [loading]="loading"
+      text="Register"
+      buttonClass="submit-btn">
+    </app-loading-button>
+
+
     <button type="button" class="back-login-btn" [routerLink]="'/login'">Quay lại đăng nhập</button>
   </form>
 </div>

@@ -87,15 +87,4 @@ body {
   border-radius: 10px;
 }
 
-/* Responsive nhỏ hơn cho mobile */
-@media (max-width: 600px) {
-  .app-sidebar {
-    width: 50px;  /* nhỏ gọn hơn trên điện thoại */
-    padding: 0;
-  }
-
-  .app-sidebar li {
-    padding: 10px 5px; /* giảm padding cho vừa mắt */
-  }
-}
 
