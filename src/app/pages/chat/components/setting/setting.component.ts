@@ -17,7 +17,13 @@ export class SettingComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   showUploadAvatar = false;
-  user!: UpdateUser;
+  user: UpdateUser = {
+  fullName: '',
+  email: '',
+  dateOfBirth: '',
+  avatar: '',
+  };
+
   passwordForm: UpdatePassword = {
     userId: '',
     password: '',
