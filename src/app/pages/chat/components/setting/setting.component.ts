@@ -32,10 +32,9 @@ export class SettingComponent implements OnInit {
   }
 
 loadUserData() {
-    // Load user data from localStorage
-    const userData = localStorage.getItem('user');
+    const userData = localStorage.getItem('currentUser');
     if (userData) {
-      this.user = { ...this.user, ...JSON.parse(userData) };
+      this.user = JSON.parse(userData);
       if (this.user.avatar) {
         this.userAvatar = this.user.avatar;
       }
@@ -44,7 +43,6 @@ loadUserData() {
 
 changeAvatar() {
     this.showUploadAvatar = true;
-    console.log('Change avatar clicked');
   }
   
 closeUploadAvatar() {
