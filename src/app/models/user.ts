@@ -5,6 +5,6 @@ export interface User {
     dateOfBirth: string,
     phone: string,
     password: string,
-    isActive: boolean,
+    active: boolean,
     avatar: string
 }

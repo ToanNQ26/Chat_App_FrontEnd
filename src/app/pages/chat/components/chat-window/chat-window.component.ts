@@ -52,7 +52,6 @@ export class ChatWindowComponent implements AfterViewInit, OnChanges {
       if (this.scrollContainer) {
         this.scrollContainer.nativeElement.scrollTop =
           this.scrollContainer.nativeElement.scrollHeight;
-        console.log("ngu", this.scrollContainer)
       }
     }, 0);
   }
