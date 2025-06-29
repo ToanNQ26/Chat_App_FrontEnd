@@ -50,6 +50,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     this.socketService.onMessage().subscribe(msg => {
       this.ngzone.run(() => {
+        console.log('[SOCKET MESSAGE]', msg);
         if (
           this.selectedConversation &&
           msg.conversationId.conversationId === this.selectedConversation.conversationId
@@ -123,6 +124,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     };
     this.socketService.sendMessage(newMsg);
     //this.router.navigate(['/chat', this.selectedConversation.conversationId]);
+    console.log(newMsg);
   }
 
   ngOnDestroy(): void {
