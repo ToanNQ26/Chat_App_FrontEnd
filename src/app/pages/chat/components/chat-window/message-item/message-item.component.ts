@@ -33,13 +33,13 @@ export class MessageItemComponent {
     //console.log(this.sender, "jhsau")
   }
 
-  formatLocalTime(isoString: string): string {
-    const date = new Date(isoString);
-    return date.toLocaleTimeString('vi-VN', {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-  }
+  formatLocalTime(isoString: string | null | undefined): string {
+  const date = isoString ? new Date(isoString) : new Date(); 
+  return date.toLocaleTimeString('vi-VN', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}
 
 }
   
