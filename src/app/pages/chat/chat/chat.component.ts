@@ -47,6 +47,20 @@ export class ChatComponent implements OnInit, OnDestroy {
       const convoId = params['conversationId'];
       this.loadConversationsAndSelect(convoId);
     });
+
+    this.socketService.onMessage().subscribe(msg => {
+      this.ngzone.run(() => {
+        if (
+          this.selectedConversation &&
+          msg.conversationId.conversationId === this.selectedConversation.conversationId
+        ) {
+          this.messages.push({
+            ...msg,
+            timeStamp: new Date(msg.timeStamp),
+          });
+        }
+      });
+    });
   }
 
 
@@ -109,7 +123,6 @@ export class ChatComponent implements OnInit, OnDestroy {
     };
     this.socketService.sendMessage(newMsg);
     //this.router.navigate(['/chat', this.selectedConversation.conversationId]);
-    this.messages.push(newMsg);
   }
 
   ngOnDestroy(): void {
